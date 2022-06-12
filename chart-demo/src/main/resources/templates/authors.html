@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layouts/main :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+
+	<main role="main">
+	
+		<div class="container mt-5">
+			<div class="alert alert-success" role="alert" th:if="${success}" >
+				New Author successfully added.
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Gender</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="author: ${authors}">
+						<td th:text="${author.id}"></td>
+						<td th:text="${author.name}"></td>
+						<td th:text="${author.genre}"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<a href="#" th:href="@{/author}" class="btn btn-primary">New
+				Author</a>
+
+		</div>
+</main>
+</body>
+</html>

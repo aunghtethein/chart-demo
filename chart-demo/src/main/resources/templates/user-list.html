@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html th:replace="~{layouts/main :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+ <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-3">
+                            <h4>OT </h4>
+                        </div>
+                        <div class="col-md-3">
+                        	<a href="#" th:href="@{/add-user}"  class="btn btn-secondary" >Registration</a>
+                        </div>
+                        <div class="col-md-6">
+                        	<div class="row">
+                        	<form action="#" th:action="@{/user-list}">
+                        		Filter: <input type="date" name="startDate" size="20" th:value="${startDate}" placeholder="Start Date"  />
+	                        	&nbsp;
+	                        			<input type="date" name="endDate" size="20" th:value="${endDate}" placeholder="End Date"  />
+	                        	&nbsp;	
+   								<input type="submit" value="Search" class="btn btn-secondary" />
+  							    &nbsp;
+  								<a href="#" th:href="@{/user-list}"  class="btn btn-primary" >Clear</a>
+	                        		
+                        	</form>
+                        	</div>
+                        </div>
+                </div>
+
+		      <div class="col-md-12 mt-5" th:unless="${#lists.isEmpty(users)}">
+                    <table class="table table-striped" >
+                        <thead>
+                            <tr>
+                            	<th>ID</th>
+                                <th>Name</th>
+                                <th>OT</th>
+                                <th>Date Created</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="p : ${users}">
+                                <td th:text="${p.id}"></td>
+                                <td th:text="${p.name}"></td>
+                                <td th:text="${p.ot}"></td>
+                                <td th:text="${p.dateCreated}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    
+    
+</body>
+</html>
