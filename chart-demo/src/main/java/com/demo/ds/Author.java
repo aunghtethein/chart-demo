@@ -18,7 +18,7 @@ public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotEmpty(message = "{mgmg.msg}")
+	@NotEmpty(message = "{author.name.msg}")
 	private String name;
 
 	@NotEmpty(message = "{author.genre.validator.msg}")
